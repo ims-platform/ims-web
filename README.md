@@ -56,13 +56,21 @@ NEXT_PUBLIC_APP_ENV=
 ## 📁 Estructura del Proyecto
 app/
  ├── (auth)/
+ 
  ├── (marketing)/
+ 
  ├── (dashboard)/
+ 
  └── layout.tsx
+ 
 components/
+
 hooks/
+
 services/
+
 schemas/
+
 styles/
 
 ---
