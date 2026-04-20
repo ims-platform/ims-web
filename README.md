@@ -1,74 +1,64 @@
 # ims-web
-Frontend application for IMS Platform (Next.js, TypeScript, Zustand, React Query)
+Aplicación Frontend para la Plataforma IMS (Next.js, TypeScript, Zustand, React Query)
 
 ---
 
-## ⚠️ Status
-
-This repository contains the initial DevOps setup.  
-The frontend application has not been fully initialized yet.
-
----
-
-## 🧱 Tech Stack
-
-* Next.js (App Router)
-* TypeScript
-* Zustand (global state)
-* TanStack Query (server state)
-* Axios (HTTP client)
-* Tailwind CSS
-* shadcn/ui + Radix UI
-* React Hook Form + Zod
-* Framer Motion
-* Lucide React
-* Date-fns
-* Sonner (toasts)
+## ⚠️ Estado
+Este repositorio contiene la configuración inicial de DevOps.
+La aplicación frontend aún no ha sido completamente inicializada.
 
 ---
 
-## 🚀 Getting Started
+## 🧱 Stack Tecnológico
+- Next.js (App Router)
+- TypeScript
+- Zustand (estado global)
+- TanStack Query (estado del servidor)
+- Axios (cliente HTTP)
+- Tailwind CSS
+- shadcn/ui + Radix UI
+- React Hook Form + Zod
+- Framer Motion
+- Lucide React
+- Date-fns
+- Sonner (toasts)
 
-### Install dependencies
+---
 
+## 🚀 Inicio Rápido
+
+### Instalar dependencias
 npm install
 
-### Run development server
-
+### Ejecutar servidor de desarrollo
 npm run dev
 
-Open:
-
+Abrir:
 http://localhost:3000
 
 ---
 
-## ⚙️ Environment Variables
-
-Create a `.env.local` file based on `.env.example`:
-
+## ⚙️ Variables de Entorno
+Crear un archivo `.env.local` basado en `.env.example`:
 NEXT_PUBLIC_API_URL=
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
-NEXT_PUBLIC_APP_ENV=development
+NEXT_PUBLIC_APP_ENV=
 
-### Environment meanings
-
-- NEXT_PUBLIC_API_URL → Backend API URL (ims-api)
-- NEXT_PUBLIC_SUPABASE_URL → Supabase project URL
-- NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY → Public Supabase key (safe for frontend)
-- NEXT_PUBLIC_APP_ENV → Environment (development / staging / production)
+### Descripción de variables
+- NEXT_PUBLIC_API_URL → URL del backend (ims-api)
+- NEXT_PUBLIC_SUPABASE_URL → URL del proyecto en Supabase
+- NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY → Clave pública de Supabase (segura para frontend)
+- NEXT_PUBLIC_APP_ENV → Entorno (development / staging / production)
 
 ---
 
-## 📁 Project Structure
-
+## 📁 Estructura del Proyecto
 app/
  ├── (auth)/
  ├── (marketing)/
  ├── (dashboard)/
  └── layout.tsx
-
 components/
 hooks/
 services/
@@ -77,16 +67,12 @@ styles/
 
 ---
 
-## 🔗 API Integration
-
-All API requests must be handled through:
-
+## 🔗 Integración con la API
+Todas las peticiones a la API deben realizarse a través de:
 services/api.ts
 
-Example:
-
+Ejemplo:
 import axios from "axios";
-
 export const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
 });
@@ -94,96 +80,100 @@ export const api = axios.create({
 ---
 
 ## 🔗 Backend
-
-This app connects to:
-
+Esta aplicación se conecta a:
 - ims-api (backend)
-- Base URL defined via environment variables
+- URL base definida mediante variables de entorno
 
 ---
 
-## 🧠 State Management
-
-- Zustand → global UI/app state
-- TanStack Query → server data fetching & caching
-
----
-
-## 🎨 UI & Styling
-
-- Built with shadcn/ui
-- Styled using Tailwind CSS
-- Animations with Framer Motion
+## 🧠 Manejo de Estado
+- Zustand → estado global de UI/app
+- TanStack Query → fetching y caché de datos del servidor
 
 ---
 
-## 🧪 Forms & Validation
-
-- Forms handled with React Hook Form
-- Validation with Zod
+## 🎨 UI & Estilos
+- Construido con shadcn/ui
+- Estilos con Tailwind CSS
+- Animaciones con Framer Motion
 
 ---
 
-## 🛡️ Development Rules
+## 🧪 Formularios & Validación
+- Formularios con React Hook Form
+- Validación con Zod
 
-- Do NOT hardcode API URLs
-- Always use environment variables
-- Keep components reusable and modular
-- Use React Query for all server data
-- Keep logic separated (services, hooks, components)
+---
+
+## 🛡️ Reglas de Desarrollo
+- NO hardcodear URLs de la API
+- Usar siempre variables de entorno
+- Mantener componentes reutilizables y modulares
+- Usar React Query para todos los datos del servidor
+- Mantener la lógica separada (services, hooks, components)
 
 ---
 
 ## 🔄 CI/CD
+- Los Pull Requests activan checks automáticos (GitHub Actions)
+- El build debe pasar antes de hacer merge
+- Los checks de lint y test serán enforced cuando las branch protection rules estén activas
 
-- Pull Requests trigger automated checks (GitHub Actions)
-- Build must pass before merging (when branch protection is enforced)
-- Future: lint and test validation will be enforced
+## 🔒 Reglas de Protección de Ramas
+Se encuentran configuradas reglas de protección para `main`, `staging` y `develop`.
 
----
+### Reglas configuradas
+- No se permite push directo a ninguna de las tres ramas
+- Todo cambio debe ingresar mediante Pull Request
+- Los siguientes checks del CI deben pasar antes de hacer merge:
+  - Lint
+  - Build
 
-## 🚀 Deployment
-
-Deployed using Vercel
-
-### Branch environments
-
-- develop → Preview
-- staging → Staging
-- main → Production
-
----
-
-## 🔐 Security Notes
-
-- Never expose private keys in frontend
-- Only use NEXT_PUBLIC_* variables in this project
-- Backend secrets must be handled in ims-api
+### Nota
+Las reglas están configuradas pero actualmente no se encuentran activas debido a que el
+repositorio pertenece a una organización con plan gratuito de GitHub. Se requiere un plan
+GitHub Team o Enterprise para activarlas.
 
 ---
 
-## 📌 Notes
+## 🚀 Despliegue
+Desplegado usando Vercel
 
-- This app connects to IMS backend API
-- Designed for scalability and modular architecture
-- Environment-based configuration is required
-- DevOps pipeline prepared before application code
+### Entornos por rama
+| Rama | Entorno |
+|------|---------|
+| develop | Preview |
+| staging | Staging |
+| main | Producción |
 
 ---
 
-## 👥 Team Workflow (DevOps)
+## 🔐 Notas de Seguridad
+- Nunca exponer claves privadas en el frontend
+- Usar únicamente variables NEXT_PUBLIC_* en este proyecto
+- Los secretos del backend deben manejarse en ims-api
 
-1. Developers work on develop
+---
+
+## 📌 Notas
+- Esta app se conecta a la API backend de IMS
+- Diseñada para escalabilidad y arquitectura modular
+- La configuración basada en entornos es obligatoria
+- Pipeline de DevOps preparado antes del código de la aplicación
+
+---
+
+## 👥 Flujo de Trabajo del Equipo (DevOps)
+1. Los desarrolladores trabajan en develop
 2. Pull Request → staging
-3. QA tests in staging environment
-4. Merge to main → production deploy
+3. QA testea en el entorno de staging
+4. Merge a main → deploy a producción
 
 ---
 
-## 🚧 Next Steps
-
-- Frontend initialization (Next.js setup)
-- API integration with backend
-- Authentication flow (Supabase)
-- UI implementation
-- Testing and linting enforcement
+## 🚧 Próximos Pasos
+- Inicialización del frontend (setup de Next.js)
+- Integración con la API del backend
+- Flujo de autenticación (Supabase)
+- Implementación de UI
+- Enforcement de testing y linting
