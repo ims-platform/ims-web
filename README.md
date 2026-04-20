@@ -1,6 +1,11 @@
 # ims-web
 Frontend application for IMS Platform (Next.js, TypeScript, Zustand, React Query)
 ---
+## ⚠️ Status
+
+This repository contains the initial DevOps setup.
+The frontend application has not been fully initialized yet.
+
 
 ## 🧱 Tech Stack
 
