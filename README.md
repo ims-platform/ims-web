@@ -184,6 +184,13 @@ Desplegado usando Vercel
 3. QA testea en el entorno de staging
 4. Merge a main → deploy a producción
 
+## 🚀 Despliegue
+Desplegado usando Vercel
+
+### Nota
+El despliegue automático desde Vercel no está activo actualmente debido a que el 
+repositorio pertenece a una organización con plan gratuito. Se requiere un plan 
+Pro de Vercel para desplegar desde repositorios privados de organizaciones.
 ---
 
 ## 🚧 Próximos Pasos
