@@ -42,21 +42,7 @@ http://localhost:3000
 Crear un archivo `.env.local` basado en `.env.example`:
 
 NEXT_PUBLIC_API_URL=
-
-NEXT_PUBLIC_SUPABASE_URL=
-
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
-
 NEXT_PUBLIC_APP_ENV=
-
-### Descripción de variables
-- NEXT_PUBLIC_API_URL → URL del backend (ims-api)
-
-- NEXT_PUBLIC_SUPABASE_URL → URL del proyecto en Supabase
-
-- NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY → Clave pública de Supabase (segura para frontend)
-
-- NEXT_PUBLIC_APP_ENV → Entorno (development / staging / production)
 
 ---
 
