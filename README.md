@@ -89,6 +89,12 @@ export const api = axios.create({
 ```
 
 ---
+## 🔗 Backend
+
+This app connects to:
+
+- ims-api (backend)
+- Base URL defined via environment variables
 
 ## 🧠 State Management
 
