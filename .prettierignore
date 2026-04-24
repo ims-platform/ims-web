@@ -1,0 +1,21 @@
+# Dependencias y builds de Next.js
+node_modules
+.next
+out
+dist
+build
+coverage
+
+# Archivos estáticos
+public
+
+# Componentes de shadcn (no tocar)
+src/shared/components/ui
+
+# Configuraciones excluidas
+.eslintrc.*
+eslint.config.*
+tailwind.config.ts
+tsconfig.json
+vitest.config.ts
+vitest.setup.ts
