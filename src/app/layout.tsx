@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Lexend } from 'next/font/google';
 
 import { TooltipProvider } from '@/shared/components/ui/tooltip';
 
@@ -15,6 +15,11 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+const lexend = Lexend({
+  variable: '--font-lexend',
+  subsets: ['latin'],
+});
+
 export const metadata: Metadata = {
   title: 'IMS Web',
   description: 'Plataforma de idiomas',
@@ -26,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
+    <html lang="es" className={`${geistSans.variable} ${geistMono.variable} ${lexend.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col font-sans">
         <TooltipProvider>{children}</TooltipProvider>
       </body>
