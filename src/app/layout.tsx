@@ -6,7 +6,7 @@ import { TooltipProvider } from '@/shared/components/ui/tooltip';
 import './globals.css';
 
 const geistSans = Geist({
-  variable: '--font-geist-sans',
+  variable: '--font-inter',
   subsets: ['latin'],
 });
 
