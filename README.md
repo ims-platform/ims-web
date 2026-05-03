@@ -1,187 +1,101 @@
-# ims-web
-Aplicación Frontend para la Plataforma IMS (Next.js, TypeScript, Zustand, React Query)
+# 🏁 Guía de Inicio Rápido: IMS Web Frontend
+
+> **¡Bienvenido, Arquitecto de Experiencias!**
+> Estás a punto de abrir las puertas de la nueva interfaz de IMS. Esta es una aplicación moderna, construida con Next.js 16 y la suite más reciente de herramientas de desarrollo.
+
+## 🛠️ Lo que tienes en tus manos
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+- **Lenguaje**: TypeScript
+- **Estilos**: Tailwind CSS 4 (con [Shadcn/UI](https://ui.shadcn.com/) integrado)
+- **Ecosistema**: PMX (Package Manager Extended)
 
 ---
 
-## ⚠️ Estado
-Este repositorio contiene la configuración inicial de DevOps.
-La aplicación frontend aún no ha sido completamente inicializada.
+## 🚀 1. Instalación y Preparación
+
+Como estás usando **PMX**, el comando de instalación es un poco diferente. Asegúrate de tener Node.js instalado.
+
+1.  **Ejecuta este comando único** para instalar las dependencias:
+    ```bash
+    pmx install
+    ```
+    _(Si `pmx` no está disponible, puedes intentar `pnpm install`, `npm install`, `yarn install` o `bun install`)_
 
 ---
 
-## 🧱 Stack Tecnológico
-- Next.js (App Router)
-- TypeScript
-- Zustand (estado global)
-- TanStack Query (estado del servidor)
-- Axios (cliente HTTP)
-- Tailwind CSS
-- shadcn/ui + Radix UI
-- React Hook Form + Zod
-- Framer Motion
-- Lucide React
-- Date-fns
-- Sonner (toasts)
+## ⚡ 2. Comandos de Desarrollo
+
+Una vez instalado, estos son los comandos que usarás todos los días:
+
+- **Iniciar el servidor en desarrollo (con vigilancia de cambios):**
+
+  ```bash
+  pmx run dev
+  ```
+
+  _Abre [http://localhost:3000](http://localhost:3000) en tu navegador._
+
+- **Compilar la aplicación (para producción):**
+
+  ```bash
+  pmx run build
+  ```
+
+- **Ver la aplicación ya compilada:**
+
+  ```bash
+  pmx run start
+  ```
+
+- **Verificar el código (Linting):**
+  ```bash
+  pmx run lint
+  ```
+  > **¡OJO!** En este proyecto corre un "Linter" que revisa tu código. Asegúrate de que no existan errores (rojos) antes de hacer commits.
 
 ---
 
-## 🚀 Inicio Rápido
+## 🎨 3. Comandos de Estilo (Styling)
 
-### Instalar dependencias
-npm install
+Shadcn/UI utiliza comandos específicos dentro de `package.json` para añadir nuevos componentes a tu proyecto.
 
-### Ejecutar servidor de desarrollo
-npm run dev
+- **Añadir un nuevo componente (ej. una Tabla):**
 
-Abrir:
-http://localhost:3000
+  ```bash
+  pmx run shadcn:add table
+  ```
 
----
+- **Elegir una colección completa de componentes:**
+  ```bash
+  pmx run shadcn:add collection @shadcn/collection-ecommerce
+  ```
 
-## ⚙️ Variables de Entorno
-Crear un archivo `.env.local` basado en `.env.example`:
-
-NEXT_PUBLIC_API_URL=
-NEXT_PUBLIC_APP_ENV=
+> **Nota**: Puedes ver la lista de todos los comandos de shadcn disponibles en tu archivo `package.json` en la sección `scripts`.
 
 ---
 
-## 📁 Estructura del Proyecto
-app/
- ├── (auth)/
+## 📂 4. Estructura de Carpetas
 
- ├── (marketing)/
-
- ├── (dashboard)/
-
- └── layout.tsx
-
-components/
-
-hooks/
-
-services/
-
-schemas/
-
-styles/
+- `src/app/`: La raíz de tu aplicación. Define tus páginas principales aquí.
+- `src/components/ui/`: Los componentes de Shadcn.
+- `src/components/`: Componentes personalizados que crees.
+- `src/lib/`: Lógica, utilidades y configuración de estilos.
+- `src/services/`: Conexión con la API externa (Backend).
 
 ---
 
-## 🔗 Integración con la API
-Todas las peticiones a la API deben realizarse a través de:
-services/api.ts
+## 🎨 5. Configuración de Paleta de Colores (Estilos)
 
-Ejemplo:
-import axios from "axios";
-export const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
-});
+La aplicación usa [Tailwind CSS 4](https://tailwindcss.com/). Los colores están definidos en `src/lib/utils.ts`.
 
----
+| Propiedad                  | Definición                                 | Uso                                   | Ejemplo de Código         |
+| :------------------------- | :----------------------------------------- | :------------------------------------ | :------------------------ |
+| **`--background`**         | Color de fondo principal                   | Se usa en `body` y contenedores base. | `bg-background`           |
+| **`--foreground`**         | Color de texto principal                   | Se usa para el texto principal.       | `text-foreground`         |
+| **`--card`**               | Color de las tarjetas/bloques              | Se usa en componentes tipo "Card".    | `bg-card`                 |
+| **`--card-foreground`**    | Texto de las tarjetas                      | Texto que va sobre las tarjetas.      | `text-card-foreground`    |
+| **`--primary`**            | Color principal (Botones, Enlaces Activos) | El color más importante de tu marca.  | `bg-primary`              |
+| **`--primary-foreground`** | Texto sobre el color principal             | Texto blanco o claro sobre el botón.  | `text-primary-foreground` |
 
-## 🔗 Backend
-Esta aplicación se conecta a:
-- ims-api (backend)
-- URL base definida mediante variables de entorno
-
----
-
-## 🧠 Manejo de Estado
-- Zustand → estado global de UI/app
-- TanStack Query → fetching y caché de datos del servidor
-
----
-
-## 🎨 UI & Estilos
-- Construido con shadcn/ui
-- Estilos con Tailwind CSS
-- Animaciones con Framer Motion
-
----
-
-## 🧪 Formularios & Validación
-- Formularios con React Hook Form
-- Validación con Zod
-
----
-
-## 🛡️ Reglas de Desarrollo
-- NO hardcodear URLs de la API
-- Usar siempre variables de entorno
-- Mantener componentes reutilizables y modulares
-- Usar React Query para todos los datos del servidor
-- Mantener la lógica separada (services, hooks, components)
-
----
-
-## 🔄 CI/CD
-- Los Pull Requests activan checks automáticos (GitHub Actions)
-- El build debe pasar antes de hacer merge
-- Los checks de lint y test serán enforced cuando las branch protection rules estén activas
-
-## 🔒 Reglas de Protección de Ramas
-Se encuentran configuradas reglas de protección para `main`, `staging` y `develop`.
-
-### Reglas configuradas
-- No se permite push directo a ninguna de las tres ramas
-- Todo cambio debe ingresar mediante Pull Request
-- Los siguientes checks del CI deben pasar antes de hacer merge:
-  - Lint
-  - Build
-
-### Nota
-Las reglas están configuradas pero actualmente no se encuentran activas debido a que el
-repositorio pertenece a una organización con plan gratuito de GitHub. Se requiere un plan
-GitHub Team o Enterprise para activarlas.
-
----
-
-## 🚀 Despliegue
-Desplegado usando Vercel
-
-### Entornos por rama
-| Rama | Entorno |
-|------|---------|
-| develop | Preview |
-| staging | Staging |
-| main | Producción |
-
----
-
-## 🔐 Notas de Seguridad
-- Nunca exponer claves privadas en el frontend
-- Usar únicamente variables NEXT_PUBLIC_* en este proyecto
-- Los secretos del backend deben manejarse en ims-api
-
----
-
-## 📌 Notas
-- Esta app se conecta a la API backend de IMS
-- Diseñada para escalabilidad y arquitectura modular
-- La configuración basada en entornos es obligatoria
-- Pipeline de DevOps preparado antes del código de la aplicación
-
----
-
-## 👥 Flujo de Trabajo del Equipo (DevOps)
-1. Los desarrolladores trabajan en develop
-2. Pull Request → staging
-3. QA testea en el entorno de staging
-4. Merge a main → deploy a producción
-
-## 🚀 Despliegue
-Desplegado usando Vercel
-
-### Nota
-El despliegue automático desde Vercel no está activo actualmente debido a que el 
-repositorio pertenece a una organización con plan gratuito. Se requiere un plan 
-Pro de Vercel para desplegar desde repositorios privados de organizaciones.
----
-
-## 🚧 Próximos Pasos
-- Inicialización del frontend (setup de Next.js)
-- Integración con la API del backend
-- Flujo de autenticación (Supabase)
-- Implementación de UI
-- Enforcement de testing y linting
+> **Recuerda**: Como es Tailwind 4, puedes usar clases como `bg-muted`, `hover:bg-accent`, etc., directamente en tus componentes.
