@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Geist_Mono, Lexend } from 'next/font/google';
+import { Geist_Mono, Inter, Lexend } from 'next/font/google';
 
 import { TooltipProvider } from '@/shared/components/ui/tooltip';
 
