@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist_Mono, Inter, Lexend } from 'next/font/google';
 
+import { Toaster } from '@/shared/components/ui/sonner';
 import { TooltipProvider } from '@/shared/components/ui/tooltip';
 
 import './globals.css';
@@ -34,6 +35,7 @@ export default function RootLayout({
     <html lang="es" className={`${inter.variable} ${geistMono.variable} ${lexend.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col font-sans">
         <TooltipProvider>{children}</TooltipProvider>
+        <Toaster position="top-right" />
       </body>
     </html>
   );

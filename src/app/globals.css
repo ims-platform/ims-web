@@ -27,6 +27,13 @@
   --color-input: var(--input);
   --color-border: var(--border);
   --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-dark: var(--success-dark);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-dark: var(--warning-dark);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
@@ -35,13 +42,14 @@
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  --color-label: var(--label);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
   --color-data-beige: var(--data-beige);
   --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
+  --radius-md: 0.5rem;
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
@@ -61,12 +69,20 @@
   --secondary: #f1f5f9;
   --secondary-foreground: #0f172a;
   --muted: #f1f5f9;
-  --muted-foreground: #64748b;
+  --muted-foreground: #64748B;
   --accent: #f5f5dc;
   --accent-foreground: #0f172a;
+  --label: #475569;
   --data-beige: #f5f5dc;
-  --destructive: #ef4444;
+  --destructive: #EF4444;
   --destructive-foreground: #ffffff;
+  --destructive-dark: #DC2626;
+  --success: #10B981;
+  --success-foreground: #ffffff;
+  --success-dark: #059669;
+  --warning: #F59E0B;
+  --warning-foreground: #ffffff;
+  --warning-dark: #B45309;
   --border: #e2e8f0;
   --input: #e2e8f0;
   --ring: #5a5cf2;
@@ -101,8 +117,12 @@
   --muted-foreground: #94a3b8;
   --accent: #334155;
   --accent-foreground: #f8fafc;
-  --destructive: #7f1d1d;
+  --destructive: #BA1A1A;
   --destructive-foreground: #f8fafc;
+  --success: #047857;
+  --success-foreground: #ffffff;
+  --warning: #B45309;
+  --warning-foreground: #ffffff;
   --border: #1e293b;
   --input: #1e293b;
   --ring: #5a5cf2;
@@ -125,10 +145,27 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }
+}
+
+/* Reset de Autofill para evitar el fondo azul del navegador */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--foreground);
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
