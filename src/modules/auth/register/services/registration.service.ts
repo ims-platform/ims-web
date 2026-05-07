@@ -1,11 +1,12 @@
-import { api } from "@/shared/services/api";
-import { RegistrationFormValues } from "../schemas/registration.schema";
+import { api } from '@/shared/services/api';
+
+import { RegistrationFormValues } from '../schemas/registration.schema';
 
 export const registrationService = {
   registerTeacher: async (data: RegistrationFormValues) => {
     // MOCK: Simulamos un delay y una respuesta exitosa para pruebas de UI
     await new Promise((resolve) => setTimeout(resolve, 1500));
-    
+
     /* 
     // Llamada real al endpoint comentada hasta que el backend esté listo
     const response = await api.post("/auth/register-teacher", {
@@ -18,6 +19,6 @@ export const registrationService = {
     return response.data;
     */
 
-    return { success: true, message: "Usuario registrado correctamente" };
+    return { success: true, message: 'Usuario registrado correctamente' };
   },
 };

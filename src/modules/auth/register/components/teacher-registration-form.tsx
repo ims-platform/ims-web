@@ -1,40 +1,22 @@
-"use client";
+'use client';
 
-import * as React from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { User, Mail, Lock, Phone, Eye, EyeOff, ArrowRight } from "lucide-react";
-import { toast } from "sonner";
+import * as React from 'react';
 
-import { Button } from "@/shared/components/ui/button";
-import { Checkbox } from "@/shared/components/ui/checkbox";
-import {
-  Field,
-  FieldLabel,
-  FieldError,
-  FieldGroup,
-} from "@/shared/components/ui/field";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-  InputGroupButton,
-} from "@/shared/components/ui/input-group";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/shared/components/ui/select";
-import { Spinner } from "@/shared/components/ui/spinner";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { ArrowRight, Eye, EyeOff, Lock, Mail, Phone, User } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
-import {
-  registrationSchema,
-  RegistrationFormValues,
-} from "../schemas/registration.schema";
-import { registrationService } from "../services/registration.service";
-import { PasswordStrengthMeter } from "./password-strength-meter";
+import { Button } from '@/shared/components/ui/button';
+import { Checkbox } from '@/shared/components/ui/checkbox';
+import { Field, FieldError, FieldGroup, FieldLabel } from '@/shared/components/ui/field';
+import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '@/shared/components/ui/input-group';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/components/ui/select';
+import { Spinner } from '@/shared/components/ui/spinner';
+
+import { RegistrationFormValues, registrationSchema } from '../schemas/registration.schema';
+import { registrationService } from '../services/registration.service';
+import { PasswordStrengthMeter } from './password-strength-meter';
 
 export function TeacherRegistrationForm() {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -49,29 +31,29 @@ export function TeacherRegistrationForm() {
   } = useForm<RegistrationFormValues>({
     resolver: zodResolver(registrationSchema as any),
     defaultValues: {
-      fullName: "",
-      email: "",
-      specialty: "",
-      phone: "",
-      password: "",
+      fullName: '',
+      email: '',
+      specialty: '',
+      phone: '',
+      password: '',
       terms: false,
     },
   });
 
-  const passwordValue = watch("password");
-  const termsValue = watch("terms");
+  const passwordValue = watch('password');
+  const termsValue = watch('terms');
 
   const onSubmit = async (data: RegistrationFormValues) => {
     setIsPending(true);
     try {
       await registrationService.registerTeacher(data);
-      toast.success("¡Registro exitoso!", {
-        description: "Su cuenta de profesor ha sido creada correctamente.",
+      toast.success('¡Registro exitoso!', {
+        description: 'Su cuenta de profesor ha sido creada correctamente.',
       });
       // Aquí se podría redirigir o mostrar una vista de éxito
     } catch (error: any) {
-      toast.error("Error al registrarse", {
-        description: error.response?.data?.message || "Ocurrió un error inesperado.",
+      toast.error('Error al registrarse', {
+        description: error.response?.data?.message || 'Ocurrió un error inesperado.',
       });
     } finally {
       setIsPending(false);
@@ -83,49 +65,40 @@ export function TeacherRegistrationForm() {
       <div className="space-y-5">
         {/* Nombre Completo */}
         <Field>
-          <FieldLabel className="font-heading text-xs font-normal tracking-[0.05em] text-label uppercase">
+          <FieldLabel className="font-heading text-label text-xs font-normal tracking-[0.05em] uppercase">
             Nombre Completo
           </FieldLabel>
           <InputGroup className="h-10 rounded-md">
             <InputGroupAddon>
-              <User className="size-4 text-muted-foreground/60" />
+              <User className="text-muted-foreground/60 size-4" />
             </InputGroupAddon>
-            <InputGroupInput
-              {...register("fullName")}
-              placeholder="Ej. Juan Pérez"
-              className="text-sm"
-            />
+            <InputGroupInput {...register('fullName')} placeholder="Ej. Juan Pérez" className="text-sm" />
           </InputGroup>
           <FieldError errors={[errors.fullName]} />
         </Field>
 
         {/* Email Institucional */}
         <Field>
-          <FieldLabel className="font-heading text-xs font-normal tracking-[0.05em] text-label uppercase">
+          <FieldLabel className="font-heading text-label text-xs font-normal tracking-[0.05em] uppercase">
             Email Institucional
           </FieldLabel>
           <InputGroup className="h-10 rounded-md">
             <InputGroupAddon>
-              <Mail className="size-4 text-muted-foreground/60" />
+              <Mail className="text-muted-foreground/60 size-4" />
             </InputGroupAddon>
-            <InputGroupInput
-              {...register("email")}
-              type="email"
-              placeholder="correo@decolegio.edu.co"
-              className="text-sm"
-            />
+            <InputGroupInput {...register('email')} type="email" placeholder="correo@decolegio.edu.co" className="text-sm" />
           </InputGroup>
           <FieldError errors={[errors.email]} />
         </Field>
 
         {/* Especialidad y Teléfono en Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <Field>
-            <FieldLabel className="font-heading text-xs font-normal tracking-[0.05em] text-label uppercase">
+            <FieldLabel className="font-heading text-label text-xs font-normal tracking-[0.05em] uppercase">
               Especialidad
             </FieldLabel>
-            <Select onValueChange={(value) => setValue("specialty", value, { shouldValidate: true })}>
-              <SelectTrigger className="data-[size=default]:h-10 w-full text-sm rounded-md">
+            <Select onValueChange={(value) => setValue('specialty', value, { shouldValidate: true })}>
+              <SelectTrigger className="w-full rounded-md text-sm data-[size=default]:h-10">
                 <SelectValue placeholder="Seleccione..." />
               </SelectTrigger>
               <SelectContent>
@@ -141,18 +114,14 @@ export function TeacherRegistrationForm() {
           </Field>
 
           <Field>
-            <FieldLabel className="font-heading text-xs font-normal tracking-[0.05em] text-label uppercase">
+            <FieldLabel className="font-heading text-label text-xs font-normal tracking-[0.05em] uppercase">
               Teléfono (COL)
             </FieldLabel>
             <InputGroup className="h-10 rounded-md">
-              <InputGroupAddon className="bg-muted/10 px-3 border-r h-full">
-                <span className="text-xs font-medium text-muted-foreground">+57</span>
+              <InputGroupAddon className="bg-muted/10 h-full border-r px-3">
+                <span className="text-muted-foreground text-xs font-medium">+57</span>
               </InputGroupAddon>
-              <InputGroupInput
-                {...register("phone")}
-                placeholder="300 000 0000"
-                className="text-sm h-full"
-              />
+              <InputGroupInput {...register('phone')} placeholder="300 000 0000" className="h-full text-sm" />
             </InputGroup>
             <FieldError errors={[errors.phone]} />
           </Field>
@@ -160,19 +129,17 @@ export function TeacherRegistrationForm() {
 
         {/* Contraseña */}
         <Field>
-          <FieldLabel className="font-heading text-xs font-normal tracking-[0.05em] text-label uppercase">
-            Contraseña
-          </FieldLabel>
+          <FieldLabel className="font-heading text-label text-xs font-normal tracking-[0.05em] uppercase">Contraseña</FieldLabel>
           <InputGroup className="h-10 rounded-md">
             <InputGroupAddon>
-              <Lock className="size-4 text-muted-foreground/60" />
+              <Lock className="text-muted-foreground/60 size-4" />
             </InputGroupAddon>
             <InputGroupInput
-              {...register("password")}
-              type={showPassword ? "text" : "password"}
+              {...register('password')}
+              type={showPassword ? 'text' : 'password'}
               placeholder="••••••••"
               className="text-sm"
-              style={{ WebkitTextSecurity: showPassword ? "none" : "disc" } as React.CSSProperties}
+              style={{ WebkitTextSecurity: showPassword ? 'none' : 'disc' } as React.CSSProperties}
             />
             <InputGroupAddon align="inline-end">
               <InputGroupButton
@@ -193,16 +160,13 @@ export function TeacherRegistrationForm() {
           <Checkbox
             id="terms"
             checked={termsValue}
-            onCheckedChange={(checked) => setValue("terms", !!checked, { shouldValidate: true })}
+            onCheckedChange={(checked) => setValue('terms', !!checked, { shouldValidate: true })}
           />
-          <label
-            htmlFor="terms"
-            className="text-xs text-muted-foreground leading-snug cursor-pointer select-none"
-          >
-            Acepto los{" "}
-            <a href="#" className="text-primary hover:underline font-medium">
+          <label htmlFor="terms" className="text-muted-foreground cursor-pointer text-xs leading-snug select-none">
+            Acepto los{' '}
+            <a href="#" className="text-primary font-medium hover:underline">
               términos y condiciones
-            </a>{" "}
+            </a>{' '}
             de la institución.
           </label>
         </div>
@@ -212,7 +176,7 @@ export function TeacherRegistrationForm() {
       <Button
         type="submit"
         disabled={isPending}
-        className="w-full h-11 bg-primary text-primary-foreground rounded-lg font-medium transition-all duration-200 group"
+        className="bg-primary text-primary-foreground group h-11 w-full rounded-lg font-medium transition-all duration-200"
       >
         {isPending ? (
           <Spinner className="mr-2 size-4" />
@@ -227,16 +191,16 @@ export function TeacherRegistrationForm() {
       {/* Social Register Placeholder */}
       <div className="relative py-4">
         <div className="absolute inset-0 flex items-center">
-          <span className="w-full border-t border-muted/60"></span>
+          <span className="border-muted/60 w-full border-t"></span>
         </div>
-        <div className="relative flex justify-center text-[10px] uppercase font-bold tracking-widest">
-          <span className="bg-background px-4 text-muted-foreground/60">O registrarse con</span>
+        <div className="relative flex justify-center text-[10px] font-bold tracking-widest uppercase">
+          <span className="bg-background text-muted-foreground/60 px-4">O registrarse con</span>
         </div>
       </div>
 
-      <p className="text-center text-xs text-muted-foreground">
-        ¿Ya tiene una cuenta?{" "}
-        <a href="/auth/login" className="text-primary hover:underline font-semibold">
+      <p className="text-muted-foreground text-center text-xs">
+        ¿Ya tiene una cuenta?{' '}
+        <a href="/auth/login" className="text-primary font-semibold hover:underline">
           Inicie sesión aquí
         </a>
       </p>
