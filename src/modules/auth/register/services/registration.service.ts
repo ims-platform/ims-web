@@ -1,8 +1,9 @@
-import { api } from '@/shared/services/api';
+// import { api } from '@/shared/services/api';
 
 import { RegistrationFormValues } from '../schemas/registration.schema';
 
 export const registrationService = {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   registerTeacher: async (data: RegistrationFormValues) => {
     // MOCK: Simulamos un delay y una respuesta exitosa para pruebas de UI
     await new Promise((resolve) => setTimeout(resolve, 1500));

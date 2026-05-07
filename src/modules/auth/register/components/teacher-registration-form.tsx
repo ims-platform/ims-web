@@ -3,13 +3,13 @@
 import * as React from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { ArrowRight, Eye, EyeOff, Lock, Mail, Phone, User } from 'lucide-react';
+import { ArrowRight, Eye, EyeOff, Lock, Mail, User } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
 import { Button } from '@/shared/components/ui/button';
 import { Checkbox } from '@/shared/components/ui/checkbox';
-import { Field, FieldError, FieldGroup, FieldLabel } from '@/shared/components/ui/field';
+import { Field, FieldError, FieldLabel } from '@/shared/components/ui/field';
 import { InputGroup, InputGroupAddon, InputGroupButton, InputGroupInput } from '@/shared/components/ui/input-group';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/shared/components/ui/select';
 import { Spinner } from '@/shared/components/ui/spinner';
@@ -29,7 +29,7 @@ export function TeacherRegistrationForm() {
     watch,
     formState: { errors },
   } = useForm<RegistrationFormValues>({
-    resolver: zodResolver(registrationSchema as any),
+    resolver: zodResolver(registrationSchema as unknown as Parameters<typeof zodResolver>[0]),
     defaultValues: {
       fullName: '',
       email: '',
@@ -40,6 +40,7 @@ export function TeacherRegistrationForm() {
     },
   });
 
+  // eslint-disable-next-line react-hooks/incompatible-library
   const passwordValue = watch('password');
   const termsValue = watch('terms');
 
@@ -51,9 +52,11 @@ export function TeacherRegistrationForm() {
         description: 'Su cuenta de profesor ha sido creada correctamente.',
       });
       // Aquí se podría redirigir o mostrar una vista de éxito
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const errorMessage =
+        (error as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Ocurrió un error inesperado.';
       toast.error('Error al registrarse', {
-        description: error.response?.data?.message || 'Ocurrió un error inesperado.',
+        description: errorMessage,
       });
     } finally {
       setIsPending(false);
