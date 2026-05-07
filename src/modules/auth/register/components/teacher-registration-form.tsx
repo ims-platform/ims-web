@@ -47,7 +47,7 @@ export function TeacherRegistrationForm() {
     watch,
     formState: { errors },
   } = useForm<RegistrationFormValues>({
-    resolver: zodResolver(registrationSchema),
+    resolver: zodResolver(registrationSchema as any),
     defaultValues: {
       fullName: "",
       email: "",
