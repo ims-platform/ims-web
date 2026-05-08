@@ -1,5 +1,4 @@
 // import { api } from '@/shared/services/api';
-
 import { RegistrationFormValues } from '../schemas/registration.schema';
 
 export const registrationService = {
