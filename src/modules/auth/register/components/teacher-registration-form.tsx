@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRight, Eye, EyeOff, Lock, Mail, User } from 'lucide-react';
-import { useForm } from 'react-hook-form';
+import { useForm, type Resolver } from 'react-hook-form';
 import { toast } from 'sonner';
 
 import { Button } from '@/shared/components/ui/button';
@@ -29,7 +29,7 @@ export function TeacherRegistrationForm() {
     watch,
     formState: { errors },
   } = useForm<RegistrationFormValues>({
-    resolver: zodResolver(registrationSchema as unknown as Parameters<typeof zodResolver>[0]),
+    resolver: zodResolver(registrationSchema as unknown as Parameters<typeof zodResolver>[0]) as unknown as Resolver<RegistrationFormValues>,
     defaultValues: {
       fullName: '',
       email: '',
