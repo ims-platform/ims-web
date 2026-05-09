@@ -43,7 +43,7 @@ export function PasswordStrengthMeter({ password = '' }: PasswordStrengthMeterPr
           />
         ))}
       </div>
-      <div className="flex justify-between text-[10px] font-medium tracking-wider uppercase">
+      <div className="flex justify-between text-xxs font-medium tracking-wider uppercase">
         <span className={cn('transition-colors', password ? currentLevel.text : 'text-muted-foreground')}>
           {password ? `Contraseña ${currentLevel.label}` : 'Introduce una contraseña'}
         </span>

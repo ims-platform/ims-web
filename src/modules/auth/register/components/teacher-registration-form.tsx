@@ -198,7 +198,7 @@ export function TeacherRegistrationForm() {
         <div className="absolute inset-0 flex items-center">
           <span className="border-muted/60 w-full border-t"></span>
         </div>
-        <div className="relative flex justify-center text-[10px] font-bold tracking-widest uppercase">
+        <div className="relative flex justify-center text-xxs font-bold tracking-widest uppercase">
           <span className="bg-background text-muted-foreground/60 px-4">O registrarse con</span>
         </div>
       </div>
