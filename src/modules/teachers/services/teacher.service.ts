@@ -36,7 +36,7 @@ const MOCK_TEACHERS: Teacher[] = [
     mainSubject: 'Inglés A2',
     employeeId: '#EDU-5521',
     status: 'Activo',
-  }
+  },
 ];
 
 export const TeacherService = {

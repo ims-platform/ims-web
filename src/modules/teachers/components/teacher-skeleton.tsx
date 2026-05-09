@@ -1,37 +1,37 @@
-import { Skeleton } from '@/shared/components/ui/skeleton';
 import { Card, CardContent } from '@/shared/components/ui/card';
+import { Skeleton } from '@/shared/components/ui/skeleton';
 
 export function TeacherSkeleton() {
   return (
-    <div className="flex flex-col gap-8 animate-in fade-in duration-500">
+    <div className="animate-in fade-in flex flex-col gap-8 duration-500">
       {/* Stats Skeleton */}
       <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
-        <Card className="col-span-2 border border-border bg-white rounded-card md:col-span-2">
+        <Card className="border-border rounded-card col-span-2 border bg-white md:col-span-2">
           <CardContent className="px-6 py-4">
-            <Skeleton className="h-3 w-24 mb-3" />
-            <Skeleton className="h-9 w-48 mb-6" />
+            <Skeleton className="mb-3 h-3 w-24" />
+            <Skeleton className="mb-6 h-9 w-48" />
             <div className="flex items-center gap-3">
               <Skeleton className="h-[62px] w-[76px] rounded-xs" />
               <Skeleton className="h-5 w-32" />
             </div>
           </CardContent>
         </Card>
-        
+
         {[1, 2].map((i) => (
-          <Card key={i} className="col-span-1 border border-border bg-white rounded-card">
-            <CardContent className="px-6 py-4 flex flex-col justify-between h-full">
+          <Card key={i} className="border-border rounded-card col-span-1 border bg-white">
+            <CardContent className="flex h-full flex-col justify-between px-6 py-4">
               <div>
-                <Skeleton className="h-3 w-20 mb-4" />
+                <Skeleton className="mb-4 h-3 w-20" />
                 <Skeleton className="h-[65px] w-full max-w-[260px] rounded-xs" />
               </div>
-              <Skeleton className="h-0.5 w-full mt-6" />
+              <Skeleton className="mt-6 h-0.5 w-full" />
             </CardContent>
           </Card>
         ))}
       </div>
 
       {/* Filters Skeleton */}
-      <div className="flex h-[73px] items-center justify-between gap-4 border border-border bg-white px-4 rounded-card">
+      <div className="border-border rounded-card flex h-[73px] items-center justify-between gap-4 border bg-white px-4">
         <Skeleton className="h-10 w-full max-w-md" />
         <div className="flex gap-3">
           <Skeleton className="h-10 w-24" />
@@ -40,16 +40,16 @@ export function TeacherSkeleton() {
       </div>
 
       {/* Table Skeleton */}
-      <div className="rounded-card border bg-white overflow-hidden">
-        <div className="h-11 bg-sidebar border-b flex items-center px-6 gap-4">
+      <div className="rounded-card overflow-hidden border bg-white">
+        <div className="bg-sidebar flex h-11 items-center gap-4 border-b px-6">
           <Skeleton className="h-3 w-24" />
-          <Skeleton className="h-3 w-32 mx-auto" />
-          <Skeleton className="h-3 w-20 mx-auto" />
-          <Skeleton className="h-3 w-16 mx-auto" />
-          <Skeleton className="h-3 w-8 ml-auto" />
+          <Skeleton className="mx-auto h-3 w-32" />
+          <Skeleton className="mx-auto h-3 w-20" />
+          <Skeleton className="mx-auto h-3 w-16" />
+          <Skeleton className="ml-auto h-3 w-8" />
         </div>
         {[1, 2, 3, 4, 5].map((i) => (
-          <div key={i} className="h-[72px] border-b last:border-0 flex items-center px-6 gap-4">
+          <div key={i} className="flex h-[72px] items-center gap-4 border-b px-6 last:border-0">
             <div className="flex items-center gap-3">
               <Skeleton className="h-10 w-10 rounded-lg" />
               <div className="flex flex-col gap-2">
@@ -57,10 +57,10 @@ export function TeacherSkeleton() {
                 <Skeleton className="h-3 w-40" />
               </div>
             </div>
-            <Skeleton className="h-6 w-[121px] rounded-pill mx-auto" />
-            <Skeleton className="h-7 w-[104px] rounded-xs mx-auto" />
-            <Skeleton className="h-6 w-24 rounded-full mx-auto" />
-            <Skeleton className="h-8 w-8 rounded-full ml-auto" />
+            <Skeleton className="rounded-pill mx-auto h-6 w-[121px]" />
+            <Skeleton className="mx-auto h-7 w-[104px] rounded-xs" />
+            <Skeleton className="mx-auto h-6 w-24 rounded-full" />
+            <Skeleton className="ml-auto h-8 w-8 rounded-full" />
           </div>
         ))}
       </div>

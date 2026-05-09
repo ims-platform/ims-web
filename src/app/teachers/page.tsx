@@ -2,7 +2,7 @@ import { TeacherListModule } from '@/modules/teachers';
 
 export default function TeachersPage() {
   return (
-    <div className="min-h-screen bg-card">
+    <div className="bg-card min-h-screen">
       {/* Navbar mockup based on Figma */}
 
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
