@@ -59,6 +59,10 @@
   --color-primary: var(--primary);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
+  --color-brand: var(--brand);
+  --color-navy: var(--navy);
+  --color-hero-from: var(--hero-from);
+  --color-hero-to: var(--hero-to);
   --color-subject-badge: var(--subject-badge);
   --color-subject-badge-hover: var(--subject-badge-hover);
   --color-card-foreground: var(--card-foreground);
@@ -82,6 +86,10 @@
   --popover: #ffffff;
   --popover-foreground: #0f172a;
   --primary: #4040d8;
+  --brand: #5e61f7;
+  --navy: #001d3d;
+  --hero-from: #e1e0ff;
+  --hero-to: #d9e2ff;
   --primary-foreground: #ffffff;
   --secondary: #f1f5f9;
   --secondary-foreground: #0f172a;

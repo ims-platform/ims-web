@@ -1,20 +1,26 @@
-import { Button } from '@/shared/components/ui/button';
+import { CTA } from '@/modules/landing/components/CTA';
+import { Features } from '@/modules/landing/components/Features';
+import { Hero } from '@/modules/landing/components/Hero';
+import { MissionVision } from '@/modules/landing/components/MissionVision';
+import { Navbar } from '@/modules/landing/components/Navbar';
+import { RoleSolutions } from '@/modules/landing/components/RoleSolutions';
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center p-8 text-center">
-      <h1 className="text-foreground text-4xl font-bold tracking-tight sm:text-6xl">IMS Platform</h1>
-      <p className="text-muted-foreground mt-6 max-w-2xl text-lg leading-8">
-        Bienvenido al nuevo entorno de desarrollo. La estructura base está lista, con Shadcn UI y Tailwind CSS 4 configurados.
-      </p>
-      <div className="mt-10 flex items-center justify-center gap-x-6">
-        <Button size="lg" className="rounded-full font-semibold shadow-sm">
-          Listo para codificar
-        </Button>
-        <Button variant="outline" size="lg" className="rounded-full font-semibold">
-          Documentación
-        </Button>
-      </div>
-    </div>
+    <main className="min-h-screen">
+      <Navbar />
+      <Hero />
+      <MissionVision />
+      <RoleSolutions />
+      <CTA />
+      <Features />
+
+      {/* Footer minimalista */}
+      <footer className="border-t bg-slate-50 py-12">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm text-slate-400">© {new Date().getFullYear()} Mi Colegio. Todos los derechos reservados.</p>
+        </div>
+      </footer>
+    </main>
   );
 }

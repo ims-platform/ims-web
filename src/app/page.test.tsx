@@ -6,11 +6,12 @@ import Home from './page';
 describe('Home Page', () => {
   it('renders the welcome message', () => {
     render(<Home />);
-    expect(screen.getByText(/IMS Platform/i)).toBeDefined();
+    // Usamos getAllByText porque el nombre aparece en el Navbar y en el Footer
+    expect(screen.getAllByText(/Mi Colegio/i).length).toBeGreaterThan(0);
   });
 
-  it('renders the "Listo para codificar" button', () => {
+  it('renders the "Prueba gratuita" button', () => {
     render(<Home />);
-    expect(screen.getByText(/Listo para codificar/i)).toBeDefined();
+    expect(screen.getByText(/Prueba gratuita/i)).toBeDefined();
   });
 });
