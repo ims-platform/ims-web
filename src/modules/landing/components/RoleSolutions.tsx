@@ -1,4 +1,4 @@
-import { BookOpen, Briefcase, CheckCircle2, GraduationCap } from 'lucide-react';
+import { BookOpen, Briefcase, GraduationCap } from 'lucide-react';
 
 const solutions = [
   {

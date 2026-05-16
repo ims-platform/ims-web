@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import { BookOpen, ShieldCheck, Users } from 'lucide-react';
 
 import { RegisterNavbar } from '@/modules/registration/components/RegisterNavbar';
