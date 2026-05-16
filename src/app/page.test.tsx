@@ -6,11 +6,11 @@ import Home from './page';
 describe('Home Page', () => {
   it('renders the welcome message', () => {
     render(<Home />);
-    expect(screen.getByText(/IMS Platform/i)).toBeDefined();
+    expect(screen.getByText(/Mi Colegio/i)).toBeDefined();
   });
 
-  it('renders the "Listo para codificar" button', () => {
+  it('renders the "Prueba gratuita" button', () => {
     render(<Home />);
-    expect(screen.getByText(/Listo para codificar/i)).toBeDefined();
+    expect(screen.getByText(/Prueba gratuita/i)).toBeDefined();
   });
 });
