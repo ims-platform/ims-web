@@ -19,3 +19,7 @@ tailwind.config.ts
 tsconfig.json
 vitest.config.ts
 vitest.setup.ts
+
+# Lockfiles (pnpm los gestiona solo)
+pnpm-lock.yaml
+pnpm-workspace.yaml
